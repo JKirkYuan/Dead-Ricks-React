@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index';
 import { bindActionCreators } from 'redux';
+import './character-list.css';
 
 class CharacterList extends Component {
     componentDidMount() {
@@ -11,6 +12,7 @@ class CharacterList extends Component {
         return this.props.characters.map( (character) => {
             return (
             <li 
+            className="list-group-item"
             key={character.id}>
             {character.name}
             </li>
@@ -23,7 +25,7 @@ class CharacterList extends Component {
         }
 
         return (
-            <ul>
+            <ul className="list-group character__list">
                 {this.renderList()}
             </ul>
         );
