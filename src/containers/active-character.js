@@ -1,19 +1,41 @@
 import React, {Component} from 'react';
 import './active-character.css';
+import {connect} from 'react-redux';
 
 class ActiveCharacter extends Component {
+    episodeList() {
+        return this.props.character.episode.map((ep) => {
+            let epNum = ep.replace(/\D/g, '');
+            return(
+                <li className="list-group-item">{epNum}</li>
+            );
+        })
+    }
     render() {
+        if (!this.props.character) {
+            return <div> Select a character </div>
+        }
         return(
             <div className="card active__character">
-                <img className="card-img-top" src=".../100px180/" alt="Card image cap" />
+                <img id="image" className="card-img-top" src={this.props.character.image} alt={this.props.character.name} />
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <h3 className="card-title">{this.props.character.name}</h3>
+                    <p className="card-text">Species: {this.props.character.species}</p>
+                    <p className="card-text">Location: {this.props.character.location.name}</p>
+                    <h5 className="card-text">Appears on Episodes</h5>
+                    <ul className="list-group">
+                        {this.episodeList()}
+                    </ul>
                 </div>
             </div>
         );
     }
 }
 
-export default ActiveCharacter;
+const mapStateToProps = (state) => {
+    return{
+        character: state.character
+    }
+}
+
+export default connect(mapStateToProps)(ActiveCharacter);

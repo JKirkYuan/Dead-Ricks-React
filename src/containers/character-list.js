@@ -11,11 +11,12 @@ class CharacterList extends Component {
     renderList() {
         return this.props.characters.map( (character) => {
             return (
-            <li 
-            className="list-group-item"
-            key={character.id}>
-            {character.name}
-            </li>
+                <li
+                onClick={ ()=> this.props.selectCharacter(character)}
+                className="list-group-item"
+                key={character.id}>
+                {character.name}
+                </li>
             );
         });
     }

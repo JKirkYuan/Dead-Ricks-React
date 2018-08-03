@@ -1,3 +1,7 @@
 .active__character{
     height: 100%;
 }
+
+#image {
+    width: 50%;
+}

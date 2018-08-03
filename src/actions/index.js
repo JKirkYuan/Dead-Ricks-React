@@ -13,4 +13,11 @@ export function listCharacters(characters) {
         type: 'LIST_CHARACTERS',
         characters
     }
-} 
+}
+
+export function selectCharacter(character) {
+    return {
+        type: 'SELECT_CHARACTER',
+        character
+    }
+}
