@@ -2,7 +2,7 @@
   "name": "dead-ricks-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jkirkyuan.github.io/Dead-Ricks-React",
+  "homepage": "https://jkirkyuan.github.io/Dead-Ricks-React/",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^1.2.0",
