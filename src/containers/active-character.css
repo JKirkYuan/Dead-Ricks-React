@@ -1,7 +1,6 @@
-.active__character{
-    height: 100%;
-}
-
 #image {
     width: 50%;
+    display: flex;
+    align-self: center;
+    margin-top: 1em;
 }
