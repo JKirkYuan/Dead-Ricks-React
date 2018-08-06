@@ -5,6 +5,9 @@ import { bindActionCreators } from 'redux';
 import './character-list.css';
 
 class CharacterList extends Component {
+    handleSelectCharacter(character) {
+        this.props.selectCharacter(character);
+    }
     componentDidMount() {
         this.props.loadCharacter();
     }
@@ -12,7 +15,7 @@ class CharacterList extends Component {
         return this.props.characters.map( (character) => {
             return (
                 <li
-                onClick={ ()=> this.props.selectCharacter(character)}
+                onClick={ ()=> this.handleSelectCharacter(character)}
                 className="list-group-item"
                 key={character.id}>
                 {character.name}

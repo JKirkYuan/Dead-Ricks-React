@@ -7,7 +7,7 @@ class ActiveCharacter extends Component {
         return this.props.character.episode.map((ep) => {
             let epNum = ep.replace(/\D/g, '');
             return(
-                <li className="list-group-item">Episode: {epNum}</li>
+                <li key={epNum} className="list-group-item">Episode: {epNum}</li>
             );
         })
     }
