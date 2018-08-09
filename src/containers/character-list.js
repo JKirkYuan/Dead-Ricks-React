@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index';
 import { bindActionCreators } from 'redux';
 import './character-list.css';
+import CharacterListItem from '../components/character-list-item';
 
 class CharacterList extends Component {
     handleSelectCharacter(character) {
@@ -11,15 +12,15 @@ class CharacterList extends Component {
     componentDidMount() {
         this.props.loadCharacter();
     }
-    renderList() {
+    renderList() { 
         return this.props.characters.map( (character) => {
             return (
-                <li
-                onClick={ ()=> this.handleSelectCharacter(character)}
-                className="list-group-item"
-                key={character.id}>
-                {character.name}
-                </li>
+                <CharacterListItem
+                    handleSelectCharacter={() => this.handleSelectCharacter(character)}
+                    className="list-group-item"
+                    key={character.id} 
+                    character={character}
+                />
             );
         });
     }
