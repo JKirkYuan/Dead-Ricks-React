@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const CharacterListItem = ({character, handleSelectCharacter}) => {
-    return (
-        <li
-        onClick={ ()=> handleSelectCharacter(character)}
-        className="list-group-item">
-        {character.name}
-        </li>
-    );
+class CharacterListItem extends Component {
+
+    handleClick(character) {
+        this.props.handleSelectCharacter(character);
+    }
+
+    render() {
+        if (this.props.clickedCharacter === this.props.character) {
+            return (
+                <li
+                onClick={ ()=> this.handleClick(this.props.character)}
+                className="list-group-item active">
+                    {this.props.character.name}
+                </li>
+            );
+        }
+        return (
+            <li
+            onClick={ ()=> this.handleClick(this.props.character)}
+            className="list-group-item">
+                {this.props.character.name}
+            </li>
+        );
+    }
 }
 
-export default CharacterListItem;
+const mapStateToProps = (state) => {
+    return {
+        clickedCharacter: state.character,
+    }
+};
+
+export default connect(mapStateToProps)(CharacterListItem);
