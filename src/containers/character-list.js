@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index';
 import { bindActionCreators } from 'redux';
 import './character-list.css';
-import CharacterListItem from '../components/character-list-item';
+import CharacterListItem from './character-list-item';
 
 class CharacterList extends Component {
     handleSelectCharacter(character) {
