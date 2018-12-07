@@ -1,6 +1,8 @@
+import { LIST_CHARACTERS } from './types';
+
 function getCharacters(state=[], action) {
     switch(action.type) {
-        case 'LIST_CHARACTERS':
+        case LIST_CHARACTERS:
             return action.characters
         default:
             return state;

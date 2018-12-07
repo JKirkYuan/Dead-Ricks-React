@@ -10,7 +10,7 @@ class CharacterList extends Component {
         this.props.selectCharacter(character);
     }
     componentDidMount() {
-        this.props.loadCharacter();
+        this.props.loadCharacterList();
     }
     renderList() {
         return this.props.characters.map( (character, index) => {

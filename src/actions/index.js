@@ -1,23 +1,21 @@
-import axios from 'axios';
+import { LIST_CHARACTERS, SELECT_CHARACTER, LOAD_CHARACTERS_REQUEST } from '../reducers/types';
 
-export function loadCharacter(){
-    return(dispatch) => {
-        return axios.get('https://rickandmortyapi.com/api/character/?status=dead').then((response) => {
-            dispatch(listCharacters(response.data.results))
-        })
-    }
+export function loadCharacterList() {
+    return {
+        type: LOAD_CHARACTERS_REQUEST
+    };
 }
 
 export function listCharacters(characters) {
     return {
-        type: 'LIST_CHARACTERS',
+        type: LIST_CHARACTERS,
         characters
-    }
+    };
 }
 
 export function selectCharacter(character) {
     return {
-        type: 'SELECT_CHARACTER',
+        type: SELECT_CHARACTER,
         character
-    }
+    };
 }
