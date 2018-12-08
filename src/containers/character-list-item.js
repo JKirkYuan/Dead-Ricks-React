@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
+const StyledItem = styled.li`
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+`;
 class CharacterListItem extends Component {
 
     handleClick(character) {
@@ -10,11 +19,11 @@ class CharacterListItem extends Component {
     render() {
         if (this.props.clickedCharacter === this.props.character) {
             return (
-                <li
+                <StyledItem
                 onClick={ ()=> this.handleClick(this.props.character)}
-                className="list-group-item active">
+                className="list-group-item">
                     {this.props.character.name}
-                </li>
+                </StyledItem>
             );
         }
         return (

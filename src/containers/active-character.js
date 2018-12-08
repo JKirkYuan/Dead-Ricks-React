@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
-import './active-character.css';
 import {connect} from 'react-redux';
+import styled from 'styled-components'
+
+const StyledImage = styled.img`
+    width: 50%;
+    display: flex;
+    align-self: center;
+    margin-top: 1em;
+`;
 
 class ActiveCharacter extends Component {
     episodeList() {
@@ -17,7 +24,7 @@ class ActiveCharacter extends Component {
         }
         return(
             <div className="card active__character">
-                <img id="image" className="card-img-top" src={this.props.character.image} alt={this.props.character.name} />
+                <StyledImage className="card-img-top" src={this.props.character.image} alt={this.props.character.name} />
                 <div className="card-body">
                     <h3 className="card-title">{this.props.character.name}</h3>
                     <p className="card-text">Species: {this.props.character.species}</p>

@@ -1,15 +1,21 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import CharacterList from './containers/character-list';
 import { Provider } from 'react-redux';
 import store from './store';
+
+import CharacterList from './containers/character-list';
 import ActiveCharacter from './containers/active-character';
+import styled from 'styled-components';
+
+const StyledContainer = styled.div`
+  margin-top: 2em;
+  margin-bottom: 2em;
+`;
 
 class App extends Component {
     render() {
         return (
-            <div className="container-fluid character__list__container">
+            <StyledContainer className="container-fluid">
                 <div className="row">
                     <div className="col-4">
                         <CharacterList />
@@ -18,7 +24,7 @@ class App extends Component {
                         <ActiveCharacter />
                     </div>
                 </div>
-            </div>
+            </StyledContainer>
         )
     }
 }
