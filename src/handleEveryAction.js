@@ -15,8 +15,8 @@ export function* handleEveryAction(action) {
 		}
     } catch (e) {
         console.group("Error handling action: ", action.type);
-		console.error("error: ", e);
-		console.log("action: ", action);
-		console.groupEnd();
+        console.error("error: ", e);
+        console.log("action: ", action);
+        console.groupEnd();
     }
 }
