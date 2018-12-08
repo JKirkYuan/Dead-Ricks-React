@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { listCharacters } from './index';
 import { LOAD_CHARACTERS_REQUEST } from '../reducers/types';
+import { addHandleEvery } from '../handleEveryAction';
 
 const getCharacters = () => {
     return axios.get('https://rickandmortyapi.com/api/character/?status=dead');
@@ -16,8 +17,6 @@ function* loadCharacters(action) {
     }
 }
 
-function* mySaga() {
-    yield takeEvery(LOAD_CHARACTERS_REQUEST, loadCharacters);
-}
-
-export default mySaga;
+addHandleEvery({
+    [LOAD_CHARACTERS_REQUEST]: loadCharacters,
+});
