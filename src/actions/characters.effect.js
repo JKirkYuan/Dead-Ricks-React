@@ -4,13 +4,16 @@ import { listCharacters } from './index';
 import { LOAD_CHARACTERS_REQUEST } from '../reducers/types';
 import { addHandleEvery } from '../handleEveryAction';
 
-const getCharacters = () => {
-    return axios.get('https://rickandmortyapi.com/api/character/?status=dead');
+const getCharacters = (page) => {
+    const url = `https://rickandmortyapi.com/api/character/?page=${page}&status=dead`;
+    return axios.get(url);
 }
 
 function* loadCharacters(action) {
+    const { page } = action;
     try {
-        const response = yield call(getCharacters);
+        const response = yield call(getCharacters, page);
+        console.log(response);
         yield put (listCharacters(response.data.results));
     } catch (e) {
         console.log(e);

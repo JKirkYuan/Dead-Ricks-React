@@ -1,8 +1,9 @@
 import { LIST_CHARACTERS, SELECT_CHARACTER, LOAD_CHARACTERS_REQUEST } from '../reducers/types';
 
-export function loadCharacterList() {
+export function loadCharacterList(page) {
     return {
-        type: LOAD_CHARACTERS_REQUEST
+        type: LOAD_CHARACTERS_REQUEST,
+        page
     };
 }
 
