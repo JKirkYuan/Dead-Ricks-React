@@ -5,6 +5,11 @@ import { bindActionCreators } from 'redux';
 import CharacterListItem from './character-list-item';
 
 class CharacterList extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSelectCharacter = this.handleSelectCharacter.bind(this);
+    }
+
     handleSelectCharacter(character) {
         this.props.selectCharacter(character);
     }
@@ -12,10 +17,10 @@ class CharacterList extends Component {
         this.props.loadCharacterList();
     }
     renderList() {
-        return this.props.characters.map( (character, index) => {
+        return this.props.characters.map((character, index) => {
             return (
                 <CharacterListItem
-                    handleSelectCharacter={() => this.handleSelectCharacter(character)}
+                    handleSelectCharacter={this.handleSelectCharacter}
                     key={character.id} 
                     character={character}
                 />
