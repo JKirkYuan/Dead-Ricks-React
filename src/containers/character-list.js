@@ -27,9 +27,7 @@ class CharacterList extends Component {
         this.props.loadCharacterList(this.state.page);
     }
     handleNextPageClick() {
-        this.setState({page: this.state.page + 1}, () => {
-            this.props.loadCharacterList(this.state.page);
-        });
+        this.setState({page: this.state.page + 1}, () => this.props.loadCharacterList(this.state.page));
     }
 
     renderList() {

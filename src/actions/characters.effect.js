@@ -13,7 +13,6 @@ function* loadCharacters(action) {
     const { page } = action;
     try {
         const response = yield call(getCharacters, page);
-        console.log(response);
         yield put (listCharacters(response.data.results));
     } catch (e) {
         console.log(e);
